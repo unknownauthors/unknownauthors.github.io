@@ -1,0 +1,19 @@
+{
+  "name": "mr-presence-visualization",
+  "version": "0.0.1",
+  "description": "MR Presence Visualization",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [
+    "MR;",
+    "Presence"
+  ],
+  "author": "Tanh Tran",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^16.0.5"
+  }
+}
