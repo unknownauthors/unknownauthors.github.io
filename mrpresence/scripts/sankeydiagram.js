@@ -4,7 +4,7 @@
     var width = 1250;
     //width = window.innerWidth;
     width = $("#sankey-diagram").width();
-    const height = 500;
+    const height = 700;
     const svgBackgroundColor = "#EBECF0";
     const svgBorderColor = "1px solid #EBECF0";
     const sankeyNodeWidth = 24;

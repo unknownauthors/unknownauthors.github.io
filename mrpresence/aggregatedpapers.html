@@ -11,10 +11,6 @@
     
     <link rel="stylesheet" href="libraries/bulma/css/bulma.css"/>
     <link rel="stylesheet" type="text/css" href="libraries/bulma/css/admin/admin.css">
-
-    <!-- <link rel="import" href="index.html"/>
-    <link rel="import" href="./pages/aggregatedpapers.html"/> -->
-
     <script src="libraries/jquery/jquery-3.6.0.min.js"></script>
     <script src="libraries/d3/d3.js"></script>
     <script src="libraries/d3-sankey/d3-sankey.js"></script>
@@ -37,10 +33,10 @@
             </div> -->
             <div id="navMenu" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item is-active" href="index.html">
+                    <a class="navbar-item" href="index.html">
                         Home
                     </a>
-                    <a class="navbar-item" href="aggregatedpapers.html">
+                    <a class="navbar-item is-active" href="aggregatedpapers.html">
                         Aggregated Publications
                     </a>
                     <a class="navbar-item" href="usedquestionnaires.html">
@@ -53,14 +49,6 @@
     <!-- END NAV -->
 
     <div class="container">
-        <div id="sankey-diagram"></div>
-    </div>
-    
-    <!-- <section class="hero is-info is-medium is-bold">
-        <div id="sankey-diagram"></div>
-    </section>    -->
-    <div class="container">
-        
         <section class="info-tiles">
             <div class="tile is-ancestor has-text-centered" id="home_tiles">
                 <div class="tile is-parent">
@@ -69,62 +57,28 @@
                         <p class="subtitle is-6">1000 publications</p>
                     </article>
                 </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <p class="title is-5">Embodied Presence</p>
-                        <p class="subtitle is-6">1000 publications</p>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <p class="title is-5">Embodied Presence</p>
-                        <p class="subtitle is-6">1000 publications</p>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <p class="title is-5">Embodied Presence</p>
-                        <p class="subtitle is-6">1000 publications</p>
-                    </article>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <p class="title is-5">Embodied Presence</p>
-                        <p class="subtitle is-6">1000 publications</p>
-                    </article>
-                </div>
             </div>
         </section>
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul id="bc_hierachy">
-                <li><a href="../">Root</a></li>
-                <li><a href="../">General Presence</a></li>
-                <li><a href="../">Questionnaire</a></li>
-                <li class="is-active"><a href="#" aria-current="page">Self-developed</a></li>
-            </ul>
-        </nav>
 
         <div class="table-container">
             <table class="table" id="reported_papers_table">
                 <thead>
-                    <tr style="background-color: gainsboro;">
-                        <th class="title is-6"><abbr title="Presence Aspect">Presence Aspect</abbr></th>
-                        <th class="title is-6"><abbr title="Measurement">Measurement</abbr></th>
-                        <th class="title is-6"><abbr title="Measurement Approach">Measurement Approach</abbr></th>
+                    <tr style="background-color: gainsboro;">                        
                         <th class="title is-6"><abbr title="Title">Title</abbr></th>
                         <th class="title is-6"><abbr title="Authors">Authors</abbr></th>
-                        <th class="title is-6"><abbr title="Year">Year</abbr></th>
+                        <th class="title is-6"><abbr title="Year">Year</abbr></th>                        
+                        <th class="title is-6"><abbr title="Source">Source</abbr></th>
+                        <th class="title is-6"><abbr title="DOI">DOI</abbr></th>
                         <th class="title is-6"><abbr title="Link">Link</abbr></th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr style="background-color: gainsboro;">
-                        <th class="title is-6"><abbr title="Presence Aspect">Presence Aspect</abbr></th>
-                        <th class="title is-6"><abbr title="Measurement">Measurement</abbr></th>
-                        <th class="title is-6"><abbr title="Measurement Approach">Measurement Approach</abbr></th>
                         <th class="title is-6"><abbr title="Title">Title</abbr></th>
                         <th class="title is-6"><abbr title="Authors">Authors</abbr></th>
-                        <th class="title is-6"><abbr title="Year">Year</abbr></th>
+                        <th class="title is-6"><abbr title="Year">Year</abbr></th>                        
+                        <th class="title is-6"><abbr title="Source">Source</abbr></th>
+                        <th class="title is-6"><abbr title="DOI">DOI</abbr></th>
                         <th class="title is-6"><abbr title="Link">Link</abbr></th>
                     </tr>
                 </tfoot>
@@ -170,7 +124,7 @@
         }
     </style>
     
-    <script src="scripts/sankeydiagram.js"></script>
+    <script src="scripts/aggregatedpapers.js"></script>
 </body>
 
 </html>

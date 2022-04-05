@@ -15,5 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^16.0.5"
+  },
+  "directories": {
+    "buildResources": "build",
+    "app": "build"
   }
 }
