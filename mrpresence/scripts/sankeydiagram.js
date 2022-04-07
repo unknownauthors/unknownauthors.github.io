@@ -254,7 +254,7 @@ function RootVisualization() {
                                     "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
                                     "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
                                     "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                    "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "'> Link</a></td>"
+                                    "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
                                 "</tr>";
 
                         $("#list_publications").append(html);
@@ -296,7 +296,7 @@ function ClickedLink(source, target)
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "'> Link</a></td>"
+                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
                                         "</tr>";
     
                                 $("#list_publications").append(html);
@@ -339,7 +339,7 @@ function ClickedLink(source, target)
                                                 "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
                                                 "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
                                                 "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                                "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "'> Link</a></td>"
+                                                "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
                                             "</tr>";
         
                                     $("#list_publications").append(html);
@@ -405,7 +405,7 @@ function ClickedNode(source)
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "'> Link</a></td>"
+                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
                                         "</tr>";
 
                                 $("#list_publications").append(html);
@@ -443,7 +443,7 @@ function ClickedNode(source)
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
                                             "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "'> Link</a></td>"
+                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
                                         "</tr>";
     
                                 $("#list_publications").append(html);
@@ -486,7 +486,7 @@ function ClickedNode(source)
                                                 "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
                                                 "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
                                                 "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                                "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "'> Link</a></td>"
+                                                "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
                                             "</tr>";
         
                                     $("#list_publications").append(html);

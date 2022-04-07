@@ -19,7 +19,7 @@ function ShowAggregatedPapers() {
                         "<td>" + paper.Year + "</td>" + 
                         "<td>" + paper.Source + "</td>" + 
                         "<td>" + paper.DOI + "</td>" + 
-                        "<td><a class='button is-small is-primary' href='" + paper.ArticleURL + "'> Link</a></td>"
+                        "<td><a class='button is-small is-primary' href='" + paper.ArticleURL + "' target='_blank'> Link</a></td>"
                     "</tr>";
 
             $("#list_publications").append(html);

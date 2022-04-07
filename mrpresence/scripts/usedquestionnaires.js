@@ -9,7 +9,7 @@ function ShowUsedQuestionnaires() {
             html = '<div class="box">' +
             '<article class="media">' +
                 '<div class="media-left">' +
-                    '<a class="button is-small is-info" href="' + paper.ArticleURL + '"> Article </a>' +
+                    '<a class="button is-small is-info" href="' + paper.ArticleURL + '" target="_blank"> Article </a>' +
                 '</div>' +
 
                 '<div class="media-content">' +
@@ -72,7 +72,7 @@ function Show(id)
                             "<td>" + p.Year + "</td>" + 
                             "<td>" + p.Journal + "</td>" + 
                             "<td>" + p.DOI + "</td>" + 
-                            "<td><a class='button is-small is-primary' href='" + p.ArticleURL + "'> Link</a></td>"
+                            "<td><a class='button is-small is-primary' href='" + p.ArticleURL + "' target='_blank'> Link</a></td>"
                         "</tr>";
     
                     });
