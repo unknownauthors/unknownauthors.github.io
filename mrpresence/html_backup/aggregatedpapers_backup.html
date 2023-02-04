@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Presence in Mixed Reality</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    
+    <link rel="stylesheet" href="libraries/bulma/css/bulma.css"/>
+    <link rel="stylesheet" type="text/css" href="libraries/bulma/css/admin/admin.css">
+    <script src="libraries/jquery/jquery-3.6.0.min.js"></script>
+    <script src="libraries/d3/d3.js"></script>
+    <script src="libraries/d3-sankey/d3-sankey.js"></script>
+    <script src="libraries/PapaParse-5.0.2/papaparse.js"></script>
+</head>
+
+<body>
+    <!-- START NAV -->
+    <nav class="navbar is-info">
+        <div class="container">
+            <!-- <div class="navbar-brand">
+                <a class="navbar-item brand-text" href="../index.html">
+        Bulma Admin
+        </a>
+                <div class="navbar-burger burger" data-target="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div> -->
+            <div id="navMenu" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="index.html">
+                        Home
+                    </a>
+                    <a class="navbar-item is-active" href="aggregatedpapers.html">
+                        Aggregated Publications
+                    </a>
+                    <a class="navbar-item" href="usedquestionnaires.html">
+                        Used Questionnaires
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+
+    <div class="container">
+        <section class="info-tiles">
+            <div class="tile is-ancestor has-text-centered" id="home_tiles">
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <p class="title is-5">Embodied Presence</p>
+                        <p class="subtitle is-6">1000 publications</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="table-container">
+            <table class="table" id="reported_papers_table">
+                <thead>
+                    <tr style="background-color: gainsboro;">                        
+                        <th class="title is-6"><abbr title="Title">Title</abbr></th>
+                        <th class="title is-6"><abbr title="Authors">Authors</abbr></th>
+                        <th class="title is-6"><abbr title="Year">Year</abbr></th>                        
+                        <th class="title is-6"><abbr title="Source">Source</abbr></th>
+                        <th class="title is-6"><abbr title="DOI">DOI</abbr></th>
+                        <th class="title is-6"><abbr title="Link">Link</abbr></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr style="background-color: gainsboro;">
+                        <th class="title is-6"><abbr title="Title">Title</abbr></th>
+                        <th class="title is-6"><abbr title="Authors">Authors</abbr></th>
+                        <th class="title is-6"><abbr title="Year">Year</abbr></th>                        
+                        <th class="title is-6"><abbr title="Source">Source</abbr></th>
+                        <th class="title is-6"><abbr title="DOI">DOI</abbr></th>
+                        <th class="title is-6"><abbr title="Link">Link</abbr></th>
+                    </tr>
+                </tfoot>
+                <tbody height="200px" id="list_publications">
+                    <tr>
+                        <td> e.Title</td> 
+                        <td> Questionnaire</td> 
+                        <td> Self-developed</td> 
+                        <td> Math.round(e.Standard_total_each_item * 1000) / 1000</td> 
+                        <td> e.Number_of_total_participants e.Number_of_total_participants</td> 
+                        <td> e.Year</td> 
+                        <td class="level-right"><a class="button is-small is-primary" href="#">Link</a></td>                 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer" style="background-image: linear-gradient(to bottom, white, #EAF2F8); margin-top: 20px;">
+        <div class="content has-text-centered">
+            <p style="font-size: 14px;">
+                The illustations are done with <strong><a href="https://d3js.org/">D3.js</a></strong> library.<br>
+                This page is styled with <strong><a href="https://bulma.io/">Bulma</a></strong>.
+            </p>
+        </div>
+        <!-- <div class="content has-text-centered">
+            <h6 id="copyright">
+                &copy; Tanh Quang Tran, Tobias Langlotz, Thomas Schubert, Holger Regenbrecht
+            </h6>
+        </div> -->
+    </footer>
+
+    <button onclick="GoTop()" id="goTopBtn" title="Go to top" style="width: 50px; height: 50px; font-size: 14px;" class="has-text-centered">Top</button>
+
+    <style>
+        .link {
+        fill: none;
+        stroke: #000;
+        stroke-opacity: .2;
+        }
+        .link:hover {
+        stroke-opacity: .5;
+        }
+    </style>
+    
+    <script src="scripts/aggregatedpapers.js"></script>
+</body>
+
+</html>
+

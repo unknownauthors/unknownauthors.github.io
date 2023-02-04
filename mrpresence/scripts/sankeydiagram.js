@@ -230,12 +230,12 @@ function RootVisualization() {
     $.getJSON("data/Publications/PresenceAspects.json", function(json) {
         json.forEach(aspect =>{
 
-            var p = '<div class="tile is-parent" title = "' + aspect.NumberOfPapers + ' publications of ' + aspect.Aspect + '">' + 
-                        '<article class="tile is-child box">' +
-                            '<p class="title is-3">' + aspect.NumberOfPapers + '</p>' + 
-                            '<p class="subtitle is-6">' + aspect.Aspect + '</p>' + 
-                        '</article>' +
-                    '</div>';
+            var p = '<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" title = "' + aspect.NumberOfPapers + ' publications of ' + aspect.Aspect + '">' + 
+                        '<div class="flex flex-col items-center py-4">' +
+                            '<h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">' + aspect.NumberOfPapers + '</h5>' +
+                            '<span class="text-sm text-gray-500 dark:text-gray-400">' + aspect.Aspect + '</span>' +
+                        '</div>' +
+                '</div>';
             
             $("#home_tiles").append(p);
 
@@ -247,15 +247,15 @@ function RootVisualization() {
                 {
                     for(var j = 0; j < element.MeasurementsAspects[i].Papers.length; j++)
                     {
-                        html = "<tr>" + 
-                                    "<td>" + aspect.Aspect + "</td>" +  
-                                    "<td>" + element.Measurement + "</td>" + 
-                                    "<td>" + element.MeasurementsAspects[i].Aspect + "</td>" + 
-                                    "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
-                                    "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
-                                    "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                    "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
-                                "</tr>";
+                        html = "<tr class=\"bg-white border-b dark:bg-gray-900 dark:border-gray-700\">" + 
+                                "<th scope=\"row\" class=\"px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white\">" + aspect.Aspect + "</th>" +  
+                                "<td class=\"px-6 py-4\">" + element.Measurement + "</td>" + 
+                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Aspect + "</td>" + 
+                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
+                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
+                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
+                                "<td class=\"px-6 py-4\"><a href=\"" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "\" target=\"_blank\" class=\"font-medium text-blue-600 dark:text-blue-500 hover:underline\">Access</a></td>";
+                            "</tr>";
 
                         $("#list_publications").append(html);
                     }
@@ -264,7 +264,12 @@ function RootVisualization() {
         });
 
         $("#bc_hierachy").empty();
-        var html = "<li class='is-active'><a href='#'>Root</a></li>";
+        var html = '<li class="inline-flex items-center">' +
+                        '<a class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">' +
+                        '<svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>' +
+                        'Root' +
+                        '</a>' +
+                    '</li>';
         $("#bc_hierachy").append(html);
     });
 
@@ -289,14 +294,14 @@ function ClickedLink(source, target)
                         {
                             for(var j = 0; j < element.MeasurementsAspects[i].Papers.length; j++)
                             {
-                                html = "<tr>" + 
-                                            "<td>" + source + "</td>" +  
-                                            "<td>" + element.Measurement + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Aspect + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
+                                html = "<tr class=\"bg-white border-b dark:bg-gray-900 dark:border-gray-700\">" + 
+                                            "<th scope=\"row\" class=\"px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white\">" + source + "</th>" +  
+                                            "<td class=\"px-6 py-4\">" + element.Measurement + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Aspect + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
+                                            "<td class=\"px-6 py-4\"><a target=\"_blank\" href=\"" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "\" class=\"font-medium text-blue-600 dark:text-blue-500 hover:underline\">Access</a></td>";
                                         "</tr>";
     
                                 $("#list_publications").append(html);
@@ -309,10 +314,19 @@ function ClickedLink(source, target)
                 
 
                 $("#bc_hierachy").empty();
-                var html = "<li><a onclick='RootVisualization()'>Root</a></li>" + 
-                            "<li class='is-active'><a href='#'>" + source + " \u2192 " + target + "</a></li>"
-                $("#bc_hierachy").append(html)
-                console.log(source + " \u2192 " + target);
+                var html = '<li class="inline-flex items-center">' +
+                                '<a onclick="RootVisualization()" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">' +
+                                '<svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>' +
+                                'Root' +
+                                '</a>' +
+                            '</li>' +
+                            '<li>' +
+                                '<div class="flex items-center">' +
+                                '<svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>' +
+                                '<a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">' + source + " \u2192 " + target + '</a>' +
+                                '</div>' +
+                            '</li>';
+                $("#bc_hierachy").append(html);
             }
         });
 
@@ -331,15 +345,15 @@ function ClickedLink(source, target)
                             for(var j = 0; j < element.MeasurementsAspects[i].Papers.length; j++)
                             {
                                 if(element.MeasurementsAspects[i].Aspect == target)
-                                {
-                                    html = "<tr>" + 
-                                                "<td>" + aspect.Aspect + "</td>" +  
-                                                "<td>" + element.Measurement + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Aspect + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                                "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
+                                {                                    
+                                    html = "<tr class=\"bg-white border-b dark:bg-gray-900 dark:border-gray-700\">" + 
+                                                "<th scope=\"row\" class=\"px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white\">" + aspect.Aspect + "</th>" +  
+                                                "<td class=\"px-6 py-4\">" + element.Measurement + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Aspect + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
+                                                "<td class=\"px-6 py-4\"><a target=\"_blank\" href=\"" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "\" class=\"font-medium text-blue-600 dark:text-blue-500 hover:underline\">Access</a></td>";
                                             "</tr>";
         
                                     $("#list_publications").append(html);
@@ -348,12 +362,21 @@ function ClickedLink(source, target)
                         }
                     }                    
                 }
-                
 
                 $("#bc_hierachy").empty();
-                var html = "<li><a onclick='RootVisualization()'>Root</a></li>" + 
-                            "<li class='is-active'><a href='#'>" + source + " \u2192 " + target + "</a></li>"
-                $("#bc_hierachy").append(html)
+                var html = '<li class="inline-flex items-center">' +
+                                '<a onclick="RootVisualization()" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">' +
+                                '<svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>' +
+                                'Root' +
+                                '</a>' +
+                            '</li>' +
+                            '<li>' +
+                                '<div class="flex items-center">' +
+                                '<svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>' +
+                                '<a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">' + source + " \u2192 " + target + '</a>' +
+                                '</div>' +
+                            '</li>';
+                $("#bc_hierachy").append(html);
                 
                 flag = true;
             });
@@ -374,23 +397,26 @@ function ClickedNode(source)
         json.forEach(element =>{
             if(element.Aspect == source)
             {
-                var p = '<div class="tile is-parent" title = "' + element.NumberOfPapers + ' publications of ' + element.Aspect + '">' + 
-                            '<article class="tile is-child box">' +
-                                '<p class="title is-3">' + element.NumberOfPapers + '</p>' + 
-                                '<p class="subtitle is-6">' + element.Aspect + '</p>' + 
-                            '</article>' +
+
+                var p = '<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" title = "' + element.NumberOfPapers + ' publications of ' + element.Aspect + '">' + 
+                            '<div class="flex flex-col items-center py-4">' +
+                                '<h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">' + element.NumberOfPapers + '</h5>' +
+                                '<span class="text-sm text-gray-500 dark:text-gray-400">' + element.Aspect + '</span>' +
+                            '</div>' +
                         '</div>';
                 
                 $("#home_tiles").append(p);
 
+                //$("#home_tiles").addClass('grid-cols-8').removeClass('grid-cols-9');
+
                 element.Measurements.forEach(element =>
                     {
-                        p = '<div class="tile is-parent" title = "' + element.NumberOfPapers + ' publications using ' + element.Measurement + '">' + 
-                                '<article class="tile is-child box">' +
-                                    '<p class="title is-3">' + element.NumberOfPapers + '</p>' + 
-                                    '<p class="subtitle is-6">' + element.Measurement + '</p>' + 
-                                '</article>' +
-                            '</div>';
+                        var p = '<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" title = "' + element.NumberOfPapers + ' publications of ' + element.Measurement + '">' + 
+                                    '<div class="flex flex-col items-center py-4">' +
+                                        '<h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">' + element.NumberOfPapers + '</h5>' +
+                                        '<span class="text-sm text-gray-500 dark:text-gray-400">' + element.Measurement + '</span>' +
+                                    '</div>' +
+                                '</div>';
                         
                         $("#home_tiles").append(p);
                         
@@ -398,14 +424,14 @@ function ClickedNode(source)
                         {
                             for(var j = 0; j < element.MeasurementsAspects[i].Papers.length; j++)
                             {
-                                html = "<tr>" + 
-                                            "<td>" + source + "</td>" +  
-                                            "<td>" + element.Measurement + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Aspect + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
+                                html = "<tr class=\"bg-white border-b dark:bg-gray-900 dark:border-gray-700\">" + 
+                                            "<th scope=\"row\" class=\"px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white\">" + source + "</th>" +  
+                                            "<td class=\"px-6 py-4\">" + element.Measurement + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Aspect + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
+                                            "<td class=\"px-6 py-4\"><a target=\"_blank\" href=\"" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "\" class=\"font-medium text-blue-600 dark:text-blue-500 hover:underline\">Access</a></td>";
                                         "</tr>";
 
                                 $("#list_publications").append(html);
@@ -415,9 +441,19 @@ function ClickedNode(source)
                 
 
                 $("#bc_hierachy").empty();
-                var html = "<li><a onclick='RootVisualization()'>Root</a></li>" + 
-                            "<li class='is-active'><a href='#'>" + source + "</a></li>"
-                $("#bc_hierachy").append(html)
+                var html = '<li class="inline-flex items-center">' +
+                                '<a onclick="RootVisualization()" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">' +
+                                '<svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>' +
+                                'Root' +
+                                '</a>' +
+                            '</li>' +
+                            '<li>' +
+                                '<div class="flex items-center">' +
+                                '<svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>' +
+                                '<a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">' + source + '</a>' +
+                                '</div>' +
+                            '</li>';
+                $("#bc_hierachy").append(html);
                 
                 flag = true;
             }
@@ -436,14 +472,14 @@ function ClickedNode(source)
                         {                                                
                             for(var j = 0; j < element.MeasurementsAspects[i].Papers.length; j++)
                             {
-                                html = "<tr>" + 
-                                            "<td>" + aspect.Aspect + "</td>" +  
-                                            "<td>" + element.Measurement + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Aspect + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
-                                            "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                            "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
+                                html = "<tr class=\"bg-white border-b dark:bg-gray-900 dark:border-gray-700\">" + 
+                                            "<th scope=\"row\" class=\"px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white\">" + source + "</th>" +  
+                                            "<td class=\"px-6 py-4\">" + element.Measurement + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Aspect + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
+                                            "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
+                                            "<td class=\"px-6 py-4\"><a target=\"_blank\" href=\"" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "\" class=\"font-medium text-blue-600 dark:text-blue-500 hover:underline\">Access</a></td>";
                                         "</tr>";
     
                                 $("#list_publications").append(html);
@@ -458,9 +494,19 @@ function ClickedNode(source)
                 if(flag)
                 {
                     $("#bc_hierachy").empty();
-                    var html = "<li><a onclick='RootVisualization()'>Root</a></li>" + 
-                                "<li class='is-active'><a href='#'>" + source + "</a></li>"
-                    $("#bc_hierachy").append(html)
+                    var html = '<li class="inline-flex items-center">' +
+                                    '<a onclick="RootVisualization()" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">' +
+                                    '<svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>' +
+                                    'Root' +
+                                    '</a>' +
+                                '</li>' +
+                                '<li>' +
+                                    '<div class="flex items-center">' +
+                                    '<svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>' +
+                                    '<a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">' + source + '</a>' +
+                                    '</div>' +
+                                '</li>';
+                    $("#bc_hierachy").append(html);
                 }
             });
 
@@ -479,14 +525,14 @@ function ClickedNode(source)
                                 
                                 if(element.MeasurementsAspects[i].Aspect == source)
                                 {
-                                    html = "<tr>" + 
-                                                "<td>" + aspect.Aspect + "</td>" +  
-                                                "<td>" + element.Measurement + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Aspect + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
-                                                "<td>" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
-                                                "<td><a class='button is-small is-primary' href='" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "' target='_blank'> Link</a></td>"
+                                    html = "<tr class=\"bg-white border-b dark:bg-gray-900 dark:border-gray-700\">" + 
+                                                "<th scope=\"row\" class=\"px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white\">" + source + "</th>" +  
+                                                "<td class=\"px-6 py-4\">" + element.Measurement + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Aspect + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Title + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Authors + "</td>" + 
+                                                "<td class=\"px-6 py-4\">" + element.MeasurementsAspects[i].Papers[j].Year + "</td>" + 
+                                                "<td class=\"px-6 py-4\"><a target=\"_blank\" href=\"" + element.MeasurementsAspects[i].Papers[j].ArticleURL + "\" class=\"font-medium text-blue-600 dark:text-blue-500 hover:underline\">Access</a></td>";
                                             "</tr>";
         
                                     $("#list_publications").append(html);
@@ -497,9 +543,19 @@ function ClickedNode(source)
                     
     
                     $("#bc_hierachy").empty();
-                    var html = "<li><a onclick='RootVisualization()'>Root</a></li>" + 
-                                "<li class='is-active'><a href='#'>" + source + "</a></li>"
-                    $("#bc_hierachy").append(html)
+                    var html = '<li class="inline-flex items-center">' +
+                                    '<a onclick="RootVisualization()" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">' +
+                                    '<svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>' +
+                                    'Root' +
+                                    '</a>' +
+                                '</li>' +
+                                '<li>' +
+                                    '<div class="flex items-center">' +
+                                    '<svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>' +
+                                    '<a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">' + source + '</a>' +
+                                    '</div>' +
+                                '</li>';
+                    $("#bc_hierachy").append(html);
                     
                     flag = true;
                 });

@@ -9,109 +9,139 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     
-    <link rel="stylesheet" href="libraries/bulma/css/bulma.css"/>
-    <link rel="stylesheet" type="text/css" href="libraries/bulma/css/admin/admin.css">
+    <link rel="stylesheet" href="./styles/output.css"/>
     <script src="libraries/jquery/jquery-3.6.0.min.js"></script>
     <script src="libraries/d3/d3.js"></script>
     <script src="libraries/d3-sankey/d3-sankey.js"></script>
     <script src="libraries/PapaParse-5.0.2/papaparse.js"></script>
 </head>
 
-<body>
-    <!-- START NAV -->
-    <nav class="navbar is-info">
-        <div class="container">
-            <!-- <div class="navbar-brand">
-                <a class="navbar-item brand-text" href="../index.html">
-        Bulma Admin
-        </a>
-                <div class="navbar-burger burger" data-target="navMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div> -->
-            <div id="navMenu" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="index.html">
-                        Home
-                    </a>
-                    <a class="navbar-item is-active" href="aggregatedpapers.html">
-                        Aggregated Publications
-                    </a>
-                    <a class="navbar-item" href="usedquestionnaires.html">
-                        Used Questionnaires
-                    </a>
-                </div>
-            </div>
+<body class="bg-blue-100">
+    <nav class="relative h-16 px-4 py-4 flex justify-between items-center bg-white">
+        <div class="lg:hidden">
+            <button class="navbar-burger flex items-center text-blue-600 p-3">
+                <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Mobile menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </button>
         </div>
+        <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+            <li><a class="text-base text-gray-400 hover:text-gray-500" href="index.html">Home</a></li>
+            <li class="text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                </svg>
+            </li>
+            <li><a class="text-base text-blue-600 font-bold" href="aggregatedpapers.html">Aggregated Publications</a></li>
+            <li class="text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                </svg>
+            </li>
+            <li><a class="text-base text-gray-400 hover:text-gray-500" href="usedquestionnaires.html">Used Questionnaires</a></li>
+        </ul>
     </nav>
     <!-- END NAV -->
 
-    <div class="container">
-        <section class="info-tiles">
-            <div class="tile is-ancestor has-text-centered" id="home_tiles">
-                <div class="tile is-parent">
-                    <article class="tile is-child box">
-                        <p class="title is-5">Embodied Presence</p>
-                        <p class="subtitle is-6">1000 publications</p>
-                    </article>
+    <div class="grid grid-cols-12 gap-4 py-4">
+        <div></div>        
+        <div class="col-span-10 gap-4 grid v-screen place-items-center">
+            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex flex-col items-center py-4" id="home_tiles">
+                    <h5 class="mb-1 text-4xl font-medium text-gray-900 dark:text-white">102</h5>
+                    <span class="text-lg text-gray-500 dark:text-gray-400">Spatial Presence</span>
                 </div>
             </div>
-        </section>
-
-        <div class="table-container">
-            <table class="table" id="reported_papers_table">
-                <thead>
-                    <tr style="background-color: gainsboro;">                        
-                        <th class="title is-6"><abbr title="Title">Title</abbr></th>
-                        <th class="title is-6"><abbr title="Authors">Authors</abbr></th>
-                        <th class="title is-6"><abbr title="Year">Year</abbr></th>                        
-                        <th class="title is-6"><abbr title="Source">Source</abbr></th>
-                        <th class="title is-6"><abbr title="DOI">DOI</abbr></th>
-                        <th class="title is-6"><abbr title="Link">Link</abbr></th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr style="background-color: gainsboro;">
-                        <th class="title is-6"><abbr title="Title">Title</abbr></th>
-                        <th class="title is-6"><abbr title="Authors">Authors</abbr></th>
-                        <th class="title is-6"><abbr title="Year">Year</abbr></th>                        
-                        <th class="title is-6"><abbr title="Source">Source</abbr></th>
-                        <th class="title is-6"><abbr title="DOI">DOI</abbr></th>
-                        <th class="title is-6"><abbr title="Link">Link</abbr></th>
-                    </tr>
-                </tfoot>
-                <tbody height="200px" id="list_publications">
-                    <tr>
-                        <td> e.Title</td> 
-                        <td> Questionnaire</td> 
-                        <td> Self-developed</td> 
-                        <td> Math.round(e.Standard_total_each_item * 1000) / 1000</td> 
-                        <td> e.Number_of_total_participants e.Number_of_total_participants</td> 
-                        <td> e.Year</td> 
-                        <td class="level-right"><a class="button is-small is-primary" href="#">Link</a></td>                 
-                    </tr>
-                </tbody>
-            </table>
         </div>
+        <div></div>
     </div>
 
-    <footer class="footer" style="background-image: linear-gradient(to bottom, white, #EAF2F8); margin-top: 20px;">
-        <div class="content has-text-centered">
-            <p style="font-size: 14px;">
-                The illustations are done with <strong><a href="https://d3js.org/">D3.js</a></strong> library.<br>
-                This page is styled with <strong><a href="https://bulma.io/">Bulma</a></strong>.
-            </p>
-        </div>
-        <!-- <div class="content has-text-centered">
-            <h6 id="copyright">
-                &copy; Tanh Quang Tran, Tobias Langlotz, Thomas Schubert, Holger Regenbrecht
-            </h6>
-        </div> -->
-    </footer>
+    <div class="grid grid-cols-12 gap-4 py-4">
+        <div></div>
+        <div class="col-span-10">               
+            
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Title     
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Authors
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Year
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Source
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                DOI
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Link
+                            </th>                              
+                        </tr>
+                    </thead>
+                    <tbody id="list_publications">
+                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Apple MacBook Pro 17"
+                            </th>
+                            <td class="px-6 py-4">
+                                Sliver
+                            </td>
+                            <td class="px-6 py-4">
+                                Laptop
+                            </td>
+                            <td class="px-6 py-4">
+                                $2999
+                            </td>
+                            <td class="px-6 py-4">
+                                $2999
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Access</a>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
 
-    <button onclick="GoTop()" id="goTopBtn" title="Go to top" style="width: 50px; height: 50px; font-size: 14px;" class="has-text-centered">Top</button>
+        </div>
+        <div></div>
+    </div>
+
+    
+
+    <div class="grid grid-cols-12 gap-4 py-4">
+        <div></div>        
+        <div class="col-span-10"></div>
+        <div></div>
+    </div>
+
+   
+
+    
+
+    <div>
+        <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+            <div class="flex flex-col items-center py-4">
+                <h5 class="mb-1 text-sm text-gray-900 dark:text-white">
+                    The illustations are done with <strong><a href="https://d3js.org/">D3.js</a></strong> library and this site is styled with <strong><a href="https://tailwindcss.com//">Tailwind CSS</a></strong>.
+                </h5>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />            
+            <div class="flex flex-col items-center py-4">
+                <h5 class="mb-1 text-sm text-gray-900 dark:text-white">
+                    &copy; Tanh Quang Tran, Tobias Langlotz, and Holger Regenbrecht
+                </h5>
+            </div>                
+        </footer>
+    </div>
+
+    <!-- <button onclick="GoTop()" id="goTopBtn" title="Go to top" style="width: 50px; height: 50px; font-size: 14px;" class="has-text-centered">Top</button> -->
 
     <style>
         .link {
